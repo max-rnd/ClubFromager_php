@@ -1,0 +1,21 @@
+{
+  "name": "vendor_name/Club_fromager",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "max",
+      "email": "email@example.com"
+    }
+  ],
+  "require": {
+    "ext-pdo": "*"
+  },
+  "autoload": {
+    "psr-0": {
+      "Model\\Business\\": "",
+      "Model\\Data\\": ""
+    }
+  }
+}
