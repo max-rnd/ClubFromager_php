@@ -1,15 +1,18 @@
 {
     "name": "max/club-fromager_php",
+    "description": "TP PHP",
     "authors": [
         {
             "name": "Max RENAUD",
             "email": "contact@max-renaud.fr"
         }
     ],
-    "autoload": {
-        "psr-0": {}
-    },
     "require": {
         "monolog/monolog": "^2.1"
+    },
+    "autoload": {
+        "psr-0": {
+            "Model\\": "src/"
+        }
     }
 }
