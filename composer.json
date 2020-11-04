@@ -1,21 +1,15 @@
 {
-  "name": "vendor_name/Club_fromager",
-  "description": "description",
-  "minimum-stability": "stable",
-  "license": "proprietary",
-  "authors": [
-    {
-      "name": "max",
-      "email": "email@example.com"
+    "name": "max/club-fromager_php",
+    "authors": [
+        {
+            "name": "Max RENAUD",
+            "email": "contact@max-renaud.fr"
+        }
+    ],
+    "autoload": {
+        "psr-0": {}
+    },
+    "require": {
+        "monolog/monolog": "^2.1"
     }
-  ],
-  "require": {
-    "ext-pdo": "*"
-  },
-  "autoload": {
-    "psr-0": {
-      "Model\\Business\\": "",
-      "Model\\Data\\": ""
-    }
-  }
 }

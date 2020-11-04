@@ -1,18 +1,20 @@
+<meta name="color-scheme" content="dark">
+<pre>
 <?php
+require_once 'vendor/autoload.php';
+// require 'Model/Autoloader.php';
+// \Model\Autoloader::register();
 
-// require_once 'vendor/autoload.php';
-
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
 use Model\Business\Fromage;
 
-require 'Model/Autoloader.php';
-\Model\Autoloader::register();
+// create a log channel
+$log = new Logger('test');
+$log->pushHandler(new StreamHandler(__DIR__.'/test.log', Logger::WARNING));
 
-$f = new Fromage();
+// add records to the log
+$log->warning('Foo');
+$log->error('Bar');
 
-$f->setNom("Reblochon");
-$f->setCreation("Haute-Savoie");
-$f->setImage("reblochon.jpg");
-
-echo '<pre>';
-var_dump($f);
-echo '</pre>';
+echo "ça marche ?";
