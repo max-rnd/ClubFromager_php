@@ -4,7 +4,7 @@
 namespace Model\Data;
 
 
-class DBAL
+abstract class DBAL
 {
     // protected $objLog;
     protected $pdo;

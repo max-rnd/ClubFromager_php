@@ -4,84 +4,55 @@
 namespace Model\Business;
 
 
-class Fromage
+class Fromage extends Aliment implements IBusinessClass
 {
-    private $_nom;
-    private $_creation;
-    private $_image;
-    private $_pays_origin;
+    private int $dureeAffinage;
+    private string $recette;
 
     /**
-     * @return mixed
+     * @return int
      */
-    public function getNom()
+    public function getDureeAffinage(): int
     {
-        return $this->_nom;
+        return $this->dureeAffinage;
     }
 
     /**
-     * @param mixed $nom
+     * @param int $dureeAffinage
      */
-    public function setNom($nom): void
+    public function setDureeAffinage(int $dureeAffinage): void
     {
-        $this->_nom = $nom;
+        $this->dureeAffinage = $dureeAffinage;
     }
 
     /**
-     * @return mixed
+     * @return string
      */
-    public function getCreation()
+    public function getRecette(): string
     {
-        return $this->_creation;
+        return $this->recette;
     }
 
     /**
-     * @param mixed $creation
+     * @param string $recette
      */
-    public function setCreation($creation): void
+    public function setRecette(string $recette): void
     {
-        $this->_creation = $creation;
+        $this->recette = $recette;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getImage()
+    public function __construct(array $data)
     {
-        return $this->_image;
+        $this->hydrate($data);
     }
 
-    /**
-     * @param mixed $image
-     */
-    public function setImage($image): void
+    public function hydrate(array $data)
     {
-        $this->_image = $image;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getPaysOrigin()
-    {
-        return $this->_pays_origin;
-    }
-
-    /**
-     * @param mixed $pays_origin
-     */
-    public function setPaysOrigin($pays_origin): void
-    {
-        $this->_pays_origin = $pays_origine;
-    }
-
-    public function getArray()
-    {
-        return array(
-            'nom' => $this->_nom,
-            'creation' => $this->_creation,
-            'image' => $this->_image,
-            'pays_origin' => $this->_pays_origin
-        );
+        // TODO: Implement hydrate() method.
+        $this->id = $data['id'];
+        $this->name = $data['name'];
+        $this->origin = $data['origin']; // Agrégation unidirectionnelle
+        $this->creation = $data['creation'];
+        $this->image = $data['image'];
     }
 }
