@@ -46,18 +46,23 @@ class daoFromage extends DBAL
         }
         return $result;
     }
-    public function newFromage(Fromage $fromage) : bool
+    public function newFromage(Fromage $fromage) : void
     {
         try {
             $sql = "insert into fromage values (:nom, :creation, :image, :pays_origine)";
             $sth = $this->pdo->prepare($sql);
             $sth->execute($fromage->getArray());
-            $good = true;
         }
         catch (\PDOException $e) {
             echo $e->getMessage();
-            $good = false;
         }
-        return $good;
+    }
+
+    public function deleteFromage(int $id) : void
+    {
+    }
+
+    public function updateFromage(Fromage $fromage) : void
+    {
     }
 }

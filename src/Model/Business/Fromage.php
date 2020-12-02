@@ -7,8 +7,8 @@ namespace Model\Business;
 
 class Fromage extends Aliment
 {
-    private int $dureeAffinage;
-    private string $recette;
+    protected int $dureeAffinage;
+    protected string $recette;
 
     /**
      * @return int

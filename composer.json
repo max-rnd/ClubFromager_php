@@ -10,11 +10,13 @@
     "require": {
       "monolog/monolog": "^2.1",
       "ext-pdo": "*",
-      "ext-json": "*"
+      "ext-json": "*",
+        "symfony/routing": "^5.2"
     },
     "autoload": {
         "psr-0": {
-            "Model\\": "src/"
+            "Model\\": "src/",
+            "Controller\\": "src/"
         }
     }
 }

@@ -6,8 +6,8 @@ namespace Model\Business;
 
 class Pays extends Root
 {
-    private int $id;
-    private string $nom;
+    protected int $id;
+    protected string $nom;
 
 
     /**

@@ -15,7 +15,7 @@ class daoPays extends DBAL
             $sth = $this->pdo->query($sql);
             // $sth->setFetchMode(\PDO::FETCH_CLASS,Pays::class);
             $sth->execute();
-            $row = $sth->fetch(\PDO::FETCH_ASSOC);
+            $row = $sth->fetch();
             $result = new Pays($row);
         }
         catch (\PDOException $e) {
