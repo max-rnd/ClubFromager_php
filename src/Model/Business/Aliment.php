@@ -3,10 +3,10 @@
 namespace Model\Business;
 
 
-abstract class Aliment
+abstract class Aliment extends Root
 {
     protected int $id;
-    protected string $name;
+    protected string $nom;
     protected Pays $origin;
     protected \DateTime $creation;
     protected string $image;
@@ -30,17 +30,17 @@ abstract class Aliment
     /**
      * @return string
      */
-    public function getName(): string
+    public function getNom(): string
     {
-        return $this->name;
+        return $this->nom;
     }
 
     /**
-     * @param string $name
+     * @param string $nom
      */
-    public function setName(string $name): void
+    public function setNom(string $nom): void
     {
-        $this->name = $name;
+        $this->nom = $nom;
     }
 
     /**
@@ -94,7 +94,7 @@ abstract class Aliment
     public function display()
     {
         echo $this->id;
-        echo $this->name;
+        echo $this->nom;
         echo $this->origin->getNom();
         echo $this->creation->format('d/m/Y');
         echo $this->image;

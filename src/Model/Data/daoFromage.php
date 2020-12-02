@@ -7,14 +7,21 @@ use Model\Business\Fromage;
 
 class daoFromage extends DBAL
 {
+    private function initFromage(array $row) : Fromage
+    {
+        $daoPays = new daoPays();
+        $row['origin'] = $daoPays->getPays($row['origin']);
+        $row['creation'] = new \DateTime($row['creation']);
+        return new Fromage($row);
+    }
     public function getFromage(int $idFromage) : Fromage
     {
         try {
             $sql = "select * from fromage where id = $idFromage";
             $sth = $this->pdo->query($sql);
-            $sth->setFetchMode(\PDO::FETCH_CLASS, Fromage::class);
             $sth->execute();
-            $result = $sth->fetch();
+            $row = $sth->fetch(\PDO::FETCH_ASSOC);
+            return $this->initFromage($row);
         }
         catch (\PDOException $e) {
             echo $e->getMessage();
@@ -24,16 +31,18 @@ class daoFromage extends DBAL
     }
     public function  getFromageList() : array
     {
+        $result = array();
         try {
             $sql = "select * from fromage";
             $sth = $this->pdo->query($sql);
-            $sth->setFetchMode(\PDO::FETCH_CLASS, Fromage::class);
             $sth->execute();
-            $result = $sth->fetchAll();
+            $tab = $sth->fetchAll(\PDO::FETCH_ASSOC);
+            foreach ($tab as $row) {
+                $result[] = $this->initFromage($row);
+            }
         }
         catch (\PDOException $e) {
             echo $e->getMessage();
-            $result = array();
         }
         return $result;
     }

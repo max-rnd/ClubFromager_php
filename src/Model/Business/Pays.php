@@ -4,10 +4,11 @@
 namespace Model\Business;
 
 
-class Pays implements IBusinessClass
+class Pays extends Root
 {
     private int $id;
     private string $nom;
+
 
     /**
      * @return int
@@ -39,18 +40,5 @@ class Pays implements IBusinessClass
     public function setNom(string $nom): void
     {
         $this->nom = $nom;
-    }
-
-    public function __construct(array $data)
-    {
-        $this->id = $data['id'];
-        $this->nom = $data['nom'];
-    }
-
-    public function hydrate(array $data)
-    {
-        // TODO: Implement hydrate() method.
-        $this->id = $data['id'];
-        $this->nom = $data['nom'];
     }
 }

@@ -4,7 +4,8 @@
 namespace Model\Business;
 
 
-class Fromage extends Aliment implements IBusinessClass
+
+class Fromage extends Aliment
 {
     private int $dureeAffinage;
     private string $recette;
@@ -39,20 +40,5 @@ class Fromage extends Aliment implements IBusinessClass
     public function setRecette(string $recette): void
     {
         $this->recette = $recette;
-    }
-
-    public function __construct(array $data)
-    {
-        $this->hydrate($data);
-    }
-
-    public function hydrate(array $data)
-    {
-        // TODO: Implement hydrate() method.
-        $this->id = $data['id'];
-        $this->name = $data['name'];
-        $this->origin = $data['origin']; // Agrégation unidirectionnelle
-        $this->creation = $data['creation'];
-        $this->image = $data['image'];
     }
 }

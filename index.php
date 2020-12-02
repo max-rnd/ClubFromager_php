@@ -4,12 +4,11 @@ use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 use Model\Business\Fromage;
 
-// var_dump(new Fromage());
 
-// $log = new Logger('test');
-// $log->pushHandler(new StreamHandler(__DIR__.'/test.log', Logger::WARNING));
-// $log->warning('Foo');
-// $log->error('Bar');
+$daoF = new \Model\Data\daoFromage();
+var_dump($f = $daoF->getFromage(1));
+echo json_encode($f);
+//$arrF = $daoF->getFromageList();
 
-$date = new \DateTime();
-echo $date->format('d/m/Y');
+/*$m = new \Model\Business\Member(array("username" => "max"));
+var_dump($m);*/

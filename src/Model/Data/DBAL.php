@@ -15,8 +15,8 @@ abstract class DBAL
     public function __construct()
     {
         $username = "root";
-        $password = "";
-        $dbname = "";
+        $password = "root";
+        $dbname = "club_fromager";
 
         // $this->objLog = new \util\log();
         try {
