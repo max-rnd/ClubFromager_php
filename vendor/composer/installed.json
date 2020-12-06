@@ -401,5 +401,6 @@
             "install-path": "../symfony/routing"
         }
     ],
-    "dev": true
+    "dev": true,
+    "dev-package-names": []
 }
