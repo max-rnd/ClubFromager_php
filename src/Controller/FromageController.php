@@ -6,12 +6,10 @@ namespace Controller;
 
 use Model\Business\Fromage;
 use Model\Data\daoFromage;
-use View\FromageView;
 
 class FromageController
 {
     private daoFromage $daoFromage;
-    private FromageView $viewFromage;
 
     /**
      * FromageController constructor.
@@ -19,24 +17,26 @@ class FromageController
     public function __construct()
     {
         $this->daoFromage = new daoFromage();
-        $this->viewFromage = new FromageView();
     }
 
-    public function Index() : void
+    public function Index() : string
     {
         $lstF = $this->daoFromage->getFromageList();
-        $this->viewFromage->Index($lstF);
+        $content = $_SERVER['DOCUMENT_ROOT'].'/../src/View/Fromage/index.php';
+        return require $_SERVER['DOCUMENT_ROOT'].'/../src/View/template.php';
     }
-    public function Show(int $id) : void
+    public function Show(int $id) : string
     {
         $f = $this->daoFromage->getFromage($id);
-        $this->viewFromage->Show($f);
+        $content = $_SERVER['DOCUMENT_ROOT'].'/../src/View/Fromage/show.php';
+        return require $_SERVER['DOCUMENT_ROOT'].'/../src/View/template.php';
     }
-    public function Edit(int $id) : void
+    public function Edit(int $id) : string
     {
         $f = $this->daoFromage->getFromage($id);
-
-        $this->daoFromage->updateFromage($f);
+        $content = $_SERVER['DOCUMENT_ROOT'].'/../src/View/Fromage/edit.php';
+        return require $_SERVER['DOCUMENT_ROOT'].'/../src/View/template.php';
+        // $this->daoFromage->updateFromage($f);
     }
     public function Create() : void
     {

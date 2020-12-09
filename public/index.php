@@ -3,7 +3,6 @@ use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Factory\AppFactory;
 
-
 // Instantiate App
 $app = AppFactory::create();
 
@@ -12,13 +11,25 @@ $app->addErrorMiddleware(true, true, true);
 
 // Add routes
 $app->get('/', function (Request $request, Response $response) {
-    $response->getBody()->write('<a href="/hello/world">Try /hello/world</a>');
+    $response->getBody()->write('<a href="/fromage">Try /fromage</a>');
     return $response;
 });
 
 $app->get('/hello/{name}', function (Request $request, Response $response, $args) {
     $name = $args['name'];
     $response->getBody()->write("Hello, $name");
+    return $response;
+});
+
+$app->get('/fromage', function (Request $request, Response $response) {
+    $fController = new \Controller\FromageController();
+    $response->getBody()->write($fController->Index());
+    return $response;
+});
+
+$app->get('/fromage/{id}', function (Request $request, Response $response, $args) {
+    $fController = new \Controller\FromageController();
+    $response->getBody()->write($fController->Show($args['id']));
     return $response;
 });
 

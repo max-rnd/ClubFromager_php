@@ -14,7 +14,7 @@ abstract class DBAL
      */
     public function __construct()
     {
-        $settings = require $_SERVER['DOCUMENT_ROOT'] . '/config/db_config.php';
+        $settings = require $_SERVER['DOCUMENT_ROOT'] . '/../config/db_config.php';
         $username = $settings["username"];
         $password = $settings["password"];
         $dbname = $settings["dbname"];
