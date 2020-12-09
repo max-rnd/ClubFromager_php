@@ -14,9 +14,10 @@ abstract class DBAL
      */
     public function __construct()
     {
-        $username = "root";
-        $password = "root";
-        $dbname = "club_fromager";
+        $settings = require $_SERVER['DOCUMENT_ROOT'] . '/config/db_config.php';
+        $username = $settings["username"];
+        $password = $settings["password"];
+        $dbname = $settings["dbname"];
 
         // $this->objLog = new \util\log();
         try {

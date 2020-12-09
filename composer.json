@@ -11,12 +11,14 @@
       "monolog/monolog": "^2.1",
       "ext-pdo": "*",
       "ext-json": "*",
-        "symfony/routing": "^5.2"
+        "symfony/routing": "^5.2",
+        "slim/slim": "^4.7"
     },
     "autoload": {
         "psr-0": {
             "Model\\": "src/",
-            "Controller\\": "src/"
+            "Controller\\": "src/",
+            "View\\": "src/"
         }
     }
 }
