@@ -6,10 +6,12 @@ namespace Controller;
 
 use Model\Business\Fromage;
 use Model\Data\daoFromage;
+use Model\Data\daoPays;
 
 class FromageController
 {
     private daoFromage $daoFromage;
+    private daoPays $daoPays;
 
     /**
      * FromageController constructor.
@@ -17,6 +19,7 @@ class FromageController
     public function __construct()
     {
         $this->daoFromage = new daoFromage();
+        $this->daoPays = new daoPays();
     }
 
     public function Index() : string
@@ -34,6 +37,7 @@ class FromageController
     public function Edit(int $id) : string
     {
         $f = $this->daoFromage->getFromage($id);
+        $lstP = $this->daoPays->getAllPays();
         $content = $_SERVER['DOCUMENT_ROOT'].'/../src/View/Fromage/edit.php';
         return require $_SERVER['DOCUMENT_ROOT'].'/../src/View/template.php';
         // $this->daoFromage->updateFromage($f);

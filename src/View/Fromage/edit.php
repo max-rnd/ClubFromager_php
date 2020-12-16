@@ -1,25 +1,21 @@
-<form>
-  <div class="form-group">
-    <label for="nom">Email address</label>
-    <input type="text" class="form-control" id="nom" aria-describedby="nom">
-  </div>
-    <div class="dropdown">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Dropdown button
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#">Action</a>
-        <a class="dropdown-item" href="#">Another action</a>
-        <a class="dropdown-item" href="#">Something else here</a>
-      </div>
+<form class="m-4">
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label" for="nom">Nom</label>
+        <input value="<?= $f->getNom(); ?>" type="text" class="form-control col-sm-10" id="nom">
     </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="text" class="form-control" id="exampleInputPassword1">
-  </div>
-  <div class="form-group form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+    <div class="from-group row">
+        <label class="col-sm-2 col-form-label" for="origine">Origine</label>
+        <select class="form-control col-sm-10" id="origine">
+            <option selected value="<?= $f->getOrigin()->getId(); ?>"><?= $f->getOrigin()->getNom(); ?></option>
+            <?php foreach ($lstP as $p) { ?>
+            <option value="<?= $p->getId(); ?>"><?= $p->getNom(); ?></option>
+            <?php } ?>
+        </select>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label" for="creation">Nom</label>
+        <input type="text" class="form-control col-sm-10" id="creation">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
 </form>

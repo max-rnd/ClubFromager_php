@@ -33,4 +33,10 @@ $app->get('/fromage/{id}', function (Request $request, Response $response, $args
     return $response;
 });
 
+$app->get('/fromage/edit/{id}', function (Request $request, Response $response, $args) {
+    $fController = new \Controller\FromageController();
+    $response->getBody()->write($fController->Edit($args['id']));
+    return $response;
+});
+
 $app->run();
